@@ -1,0 +1,56 @@
+---
+import { CardGrid, Card } from '@astrojs/starlight/components';
+---
+
+<CardGrid>
+  <Card title="Mac (Apple Silicon)" icon="apple">
+    <a class="download-btn" href="/dist/tangleguard_0.9.0_aarch64.dmg">Download .dmg</a>
+    <p class="note">Signed & notarized</p>
+  </Card>
+  <Card title="Mac (Intel)" icon="apple">
+    <a class="download-btn" href="/dist/tangleguard_0.9.0_x64.dmg">Download .dmg</a>
+    <p class="note">Signed & notarized</p>
+  </Card>
+</CardGrid>
+<CardGrid>
+  <Card title="Windows" icon="seti:windows">
+    <a class="download-btn" href="/dist/tangleguard_0.9.0_x64-setup.exe">Download .exe</a>
+    <!-- <p class="note">Signed installer</p> -->
+  </Card>
+</CardGrid>
+<CardGrid>
+<Card title="Debian based" icon="linux">
+    <a class="download-btn" href="/dist/tangleguard_0.9.0_amd64.deb" download="tangleguard_0.9.0_amd64.deb">Download .deb</a>
+    <p class="note">Ubuntu or Mint etc.</p>
+</Card>
+<Card title="Red Hat based" icon="linux">
+    <a class="download-btn" href="/dist/tangleguard-0.9.0-1.x86_64.rpm" download="tangleguard-0.9.0-1.x86_64.rpm">Download .rpm</a>
+    <p class="note">CentOS or Fedora etc.</p>
+</Card>
+<Card title="AppImage " icon="linux">
+    <a class="download-btn" href="/dist/tangleguard_0.9.0_amd64.AppImage" download="tangleguard_0.9.0_amd64.AppImage">Download .AppImage</a>
+    <p class="note">All common linux distributions</p>
+</Card>
+
+</CardGrid>
+
+<style>
+.download-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--sl-color-accent);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.download-btn:hover {
+  background:var(--sl-color-accent);
+}
+
+.note {
+    margin-top: 1rem;
+}
+
+</style>

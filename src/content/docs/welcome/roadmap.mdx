@@ -1,0 +1,30 @@
+---
+title: Roadmap
+sidebar:
+  order: 7
+---
+import { Steps } from '@astrojs/starlight/components';
+
+TangleGuard is in early development.
+Yet, it does provide the main features already.
+Below you see the rough plan for the next months.
+
+<Steps>
+1. Create Desktop App as MVP ✅
+2. Create Web App
+    - Client-side analysis with WebAssembly
+    - Add multi threading for desktop app for large codebases
+3. Make Source code available
+4. Add more features
+    - Visualization
+    - Node size depending on lines of code
+    - Persist positions of nodes for custom alignment
+    - Mark dependencies which violate rules and circular dependencies
+    - Fill packages associated with a domain with a user defined color
+    - Include network requests/dependencies (TBD, research needed)
+    - Validation
+    - More rule types: In addition to `allowed`, add also e.g. `required`
+    - Other
+    - Support for more more programming languages
+    - Proper planning of packages and modules
+</Steps>

@@ -1,0 +1,40 @@
+---
+import { Card, CardGrid } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+import layeredArch from "../assets/architecture-layered-arch.svg";
+import OnionArch from "../assets/architecture-onion-arch.svg";
+import Header from "./header.astro";
+---
+
+<Header
+  title="Templates for your Architecture"
+  subtitle="Pick well studied and proven-to-work architectural styles."
+/>
+<CardGrid>
+  <Card title="Layered Architecture">
+    Horizontal or vertical layers for software products each size.
+    <div class="image">
+      <Image src={layeredArch} alt="A bird sitting on a nest of eggs." />
+    </div>
+  </Card>
+  <Card title="Clean Architecture">
+    A combination of common designs for advanced users.
+    <div class="image">
+      <Image src={OnionArch} alt="A bird sitting on a nest of eggs." />
+    </div>
+  </Card>
+</CardGrid>
+
+<style>
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

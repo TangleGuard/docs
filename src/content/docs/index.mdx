@@ -1,0 +1,31 @@
+---
+title:  Welcome!
+template: splash
+hero:
+  title: 'TangleGuard'
+  tagline: Monitor you applications components enforce dependency rules
+  image:
+    alt: Components Diagram with different colors for each domain
+    file: ../../assets/definitions/definitions-ddd.drawio.png
+  actions:
+    - text: Tell me more
+      link: /welcome/intro/
+      icon: right-arrow
+    # - text: View on GitHub
+    #   link: https://github.com/astronaut/my-project
+    #   icon: external
+    #   variant: minimal
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import Footer  from '../../components/footer.astro';
+
+<CardGrid>
+  <Card title="Component Diagram Generation" icon="puzzle">
+    Get an overview of your components in seconds. Stop waisting time creating and maintaining diagrams yourself.
+  </Card>
+  <Card title="Dependency Rule Enforcement" icon="approve-check">
+    Keep you intended structure in place and get notified when rules are violated, for example relationships between layers.
+  </Card>
+</CardGrid>
+
+<Footer/>

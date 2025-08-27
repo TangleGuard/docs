@@ -1,0 +1,47 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+---
+
+<h2>
+  Made for Architects and Developers
+</h2>
+<h3>Rust is currently the only supported language. TangleGuard is also written in Rust 🤘. </h3>
+<div class="center">
+
+    <Icon name="seti:rust" color="Brown" size="8rem" />
+</div>
+
+<style>
+  h2 {
+    margin-bottom: 0rem;
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 0rem;
+    text-align: center;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 0.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 40rem) {
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+      max-width: 21rem;
+    }
+  }
+</style>

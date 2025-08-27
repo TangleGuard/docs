@@ -1,0 +1,91 @@
+---
+import packages  from '../assets/package-viz.png';
+import rules  from '../assets/rule-violations.png'
+import layers  from '../assets/layer-viz.png'
+
+import { Image } from 'astro:assets';
+
+let data = [
+  {
+    name: "Get Insights of Your Code",
+    sub: "Your source code get visualized as interactive graph diagrams. You get multiple different views of your architecture. From high to low-level. You easily see how you building blocks are related to each other.",
+    image: layers,
+    items: ["High Level Overview", "Metrics", "Layers relations"]
+  },
+  {
+    name: "Explore Your Code Visually",
+    sub: "Your source code get visualized as interactive graph diagrams. You get multiple different views of your architecture. From high to low-level. You easily see how you building blocks are related to each other.",
+    image: packages,
+    items: ["Relations of internal packages", "Layers and associated packages", "Module structure"]
+  },
+  {
+    name: "Validate Inter Dependencies",
+    sub: "You can define dependency rules. Once that is, TangleGuard scans your codebase and look for dependencies which violate those user defined rules. It reduces manual architecture work.",
+    image: rules,
+    items: ["Notices rule violations", "Stops architecture erosion", "Keeps you intended architecture in place"]
+  },
+]
+---
+
+
+{data.map((item) => (
+<div class="conti">
+    <div class="text">
+        <h2> {item.name}</h2>
+        <p>{item.sub}</p>
+        <ul>
+            {item.items.map((i) => (
+            <li>{i}</li>
+            ))}
+
+        </ul>
+    </div>
+    <Image src={item.image} alt="A bird sitting on a nest of eggs." />
+</div>
+))}
+
+<style>
+
+
+
+
+h2 {
+  margin-bottom: 0rem;
+  font-size: 2.3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color:  var(--sl-color-accent);
+  text-decoration-thickness: 0.3rem;
+}
+
+p, li {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 0.2rem;
+    color: var(--sl-color-white);
+    opacity: 0.8;
+}
+
+@media (width >= 64rem) {
+    .conti {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .text {
+        margin-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 40rem) {
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+    max-width: 21rem;
+  }
+}
+
+</style>

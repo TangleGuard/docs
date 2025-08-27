@@ -1,0 +1,66 @@
+---
+title: Similar Tools
+sidebar:
+  hidden: true
+---
+import { Badge } from '@astrojs/starlight/components';
+
+Although TangleGuard has a unique approach, software architecture is already actively enforced in software projects with the help of tools.
+These tools are discussed here with it's strength, uniqueness and limitations.
+
+
+## Dependency Cruiser (JS/TS)
+<Badge text="Rule Enforcement" variant="note" />
+<Badge text="Visualization" variant="note" />
+
+[Dependency Cruiser](https://github.com/sverweij/dependency-cruiser) made for JavaScript and TypeScript projects. It enforces boundaries by rules which are states in a configuration file. It includes graph visualization by creating an output file in DOT format.
+
+## ArchUnit (Java)
+<Badge text="Rule Enforcement" variant="note" />
+
+[ArchUnit](https://www.archunit.org/) is an open-source tool for Java applications.
+Port exists for [.NET](https://github.com/BenMorris/NetArchTest) and C#, too.
+It enforces dependency rules by defining them within Unit tests.
+
+## ImportLinter (Python)
+<Badge text="Rule Enforcement" variant="note" />
+
+[Import Linter](https://github.com/seddonym/import-linter/) also allows to define and enforce dependency rules within and between python packages.
+It's a CLI tool and uses a configuration file (default `.importlinte`), which contains one or more 'contracts'.
+It also possible to define [layers](https://import-linter.readthedocs.io/en/stable/contract_types.html#basic-usage).
+No metrics get provided.
+
+## Konsist (Kotlin)
+<Badge text="Rule Enforcement" variant="note" />
+A structural linter for Kotlin which works very similar to [ArchUnit](https://www.archunit.org/). It verifies the codebase in regards to user defined rules which can be created within Unit tests user the Konsist API.
+
+
+## Arkit (JS/TS)
+<Badge text="Visualization" variant="note" />
+[Arkit](https://github.com/dyatko/arkit) Associates source files with configured architectural components and creates  grouped components and dependency graph diagrams including Node.js modules as local files.
+
+
+## jQAssistant (Java)
+<Badge text="Rule Enforcement" variant="note" />
+[jQAssistant](https://github.com/jQAssistant/jqassistant) shows software analytics, verifies that current design is as indented using provided or user-defined rules. All in an XML file.
+
+## Sonargraph
+<Badge text="Rule Enforcement" variant="note" />
+<Badge text="Visualization" variant="note" />
+A tool by [Hello2Morrow](https://www.hello2morrow.com/products/sonargraph). Supports C#, C/C++, Java/Kotlin, TypeScript and Python 3.
+It enforces layered architecture by a DSL, has metrics and visualizations like hotspots.
+
+## Lattix
+<Badge text="Visualization" variant="note" />
+<Badge text="Documentation" variant="note" />
+For multiple languages, like .NET, Java and C/C++.
+Has visualization via the "Conceptual Architecture Diagram"
+Does have metrics about coupling and get's shipped as desktop app.
+
+## Summary
+
+They are a couple of tools out there to help with the architecture of a codebase. Each modern programming language seems to have a tool for rule enforcement. Visualization is rarely present.
+Also tools exists which do visualization.
+The configuration is done within a config file as text for all tools.
+None of them has a modern web application.
+It's either package installed to the workspace without GUI, or a fat client.

@@ -1,0 +1,36 @@
+---
+title: Architecture Decisions
+sidebar:
+  order: 3
+---
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+An Architecture decision records helps to understand a decision for people not involved in the discussion. With those in place, each team member - regardless of when the member joined the team, understands the motivation behind certain structures or tools.
+
+
+Lastly you can store your architecture decisions within the architecture configuration file which is stored within your repository - as so called Architecture Decision Records.
+
+- **Describe** packages for further insights and as documentation.
+- **Define domains** and associate packages to those
+- **Planned packages** that need to be implemented
+
+
+<LinkCard
+    title="Documenting Architecture decisions"
+    href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+    description="The blog entry which came up with ADRs"
+/>
+
+<LinkCard
+    title="Architecture decision templates and examples"
+    href="https://github.com/joelparkerhenderson/architecture-decision-record"
+    description="Architecture decision record (ADR) examples for software planning, IT leadership, and template documentation"
+/>
+
+When using TangleGuard the architecture desicions should be added into the system, so that TangleGaurd can help to enforce them until they offically change.
+
+So far TangleGaurd supports Layers and Dependency Rules.
+Support for more descicions will be added.
+But not all architecture descisoin can be enforced.
+For those, TangleGuard lets you document the decisions as a plain text document, which is based on a tamplate.

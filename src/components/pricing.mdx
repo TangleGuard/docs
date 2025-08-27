@@ -1,0 +1,45 @@
+---
+title: Pricing
+draft: true
+---
+
+import { Badge } from "@astrojs/starlight/components";
+import { LinkButton } from "@astrojs/starlight/components";
+import { LinkCard } from "@astrojs/starlight/components";
+import { Card } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+
+<Aside>This is in very early stage!</Aside>
+
+<Card title="Free">
+    <Badge text="€ 0" size="large" variant="success" />
+    <div style="margin-top: 2rem">
+        Perfect for evaluation
+        - Analyze up to 5 packages
+        - CLI validation
+        - Basic graph generation
+    </div>
+</Card>
+
+
+<Card title="Starter">
+    <Badge text="€ 79" size="large" variant="success" />
+    <div style="margin-top: 2rem">
+        For small projects
+        - Analyze up to 20 packages
+        - Advanced architecture rules
+        - Priority bug fixes
+    </div>
+</Card>
+
+<Card title="Professional">
+    <Badge text="€ 149" size="large" variant="success" />
+    <div style="margin-top: 2rem">
+        For serious teams
+        - Unlimited packages
+        - Advanced metrics <em>(coming soon)</em>
+        - Premium support
+    </div>
+</Card>
+

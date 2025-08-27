@@ -1,0 +1,64 @@
+---
+title: Configuration File
+sidebar:
+  order: 2
+---
+
+import { FileTree } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
+
+All information and configurations associated to your architecture is stored in a file in the root of your project.
+If you run tangle-guard for the first time, it will create that file for you.
+
+<FileTree>
+
+- src
+- Cargo.toml
+- **architecture-def.json**
+
+</FileTree>
+
+The file is supposed to be included in Git.
+That way changes will be tracked over time and can be reviewed before merging like a normal code changes.
+
+Below you see an example configuration.
+
+```json
+{
+  "layers": [
+    {
+      "name": "Interaction",
+      "description": "",
+      "packages": ["rest-api", "graphql-api"]
+    }
+  ],
+  "packages": [
+    {
+      "name": "rest-api",
+      "dependencies": ["utils"],
+      "focus": "technical"
+    }
+  ],
+  "rules": [
+    {
+      "from": "Interaction",
+      "to": "Services"
+    }
+  ],
+  "domains": [
+    {
+      "name": "User Management",
+      "dsl": ["OAuth", "Token", "Role"],
+      "domain_type": "Generic"
+    }
+  ]
+}
+```
+
+You can edit the file manually but it's highly recommended to use the web UI instead.
+<Aside type="caution">
+  If you make changes to the configuration file directly, there is a change that
+  the data is not consistent anymore. E.g. if you rename a layer, make sure you
+  rename the layer also within the rules. To omit this problem, it's recommended
+  to adjust the configuration only via the UI.
+</Aside>

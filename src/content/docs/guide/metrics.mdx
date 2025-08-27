@@ -1,0 +1,46 @@
+---
+title: Metrics
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+Tangle-guard includes a **dashboard** with key architectural metrics — giving you visibility into the health and maintainability of your system.
+
+Metrics include:
+
+- **Coupling** (efferent and afferent)
+- Layer violations over time
+- Instability indicators
+
+For a full list of supported metrics, check the [scanner metrics section](scanner#metrics-for-design-principles).
+
+### Design Principle Metrics 
+
+<Aside>
+  These metrics help evaluate **responsibility, stability, and resistance to
+  change** in your modules.
+</Aside>
+
+The scanner also calculates metrics.
+
+In addition to dependency graphs, the scanner calculates **architecture-focused metrics** to help evaluate code structure and modularity.
+
+These are based on foundational work by **Robert C. Martin** and **John Lakos**.
+
+### Metrics by Robert C. Martin
+
+| Metric                 | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| Afferent Coupling (Ca) | Number of packages that depend on a given package             |
+| Efferent Coupling (Ce) | Number of other packages a package depends on                 |
+| Instability (I)        | `Ce / (Ce + Ca)` — measures how likely a package is to change |
+
+### Metrics by John Lakos <Badge text="Coming soon" variant="note" />
+
+| Metric                                | Description                                 |
+| ------------------------------------- | ------------------------------------------- |
+| Depends Upon / Used From (V)          | Basic inbound/outbound dependency counts    |
+| Cumulative Component Dependency (CCD) | Total transitive dependencies               |
+| Average Component Dependency (ACD)    | `CCD / amount_of_components`                |
+| Relative ACD (RACD)                   | `(ACD / amount_of–components) * 100`        |
+| Normalized CCD (NCCD)                 | CCD normalized against a reference baseline |
