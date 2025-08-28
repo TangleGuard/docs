@@ -42,10 +42,10 @@ export default defineConfig({
 					href: "https://www.linkedin.com/in/jan-arends-1a83b8217/",
 				},
 				{
-					icon: "external",
-					label: "TangleGuard",
-					href: "https://tangleguard.com",
-				},
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/TangleGuard',
+        },
 			],
 			head: [
 				{
