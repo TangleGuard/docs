@@ -1,0 +1,26 @@
+---
+title: FAQ
+sidebar:
+  order: 6
+---
+
+
+### Is TangleGuard like a tracing tool (like OpenTelemetry)?
+
+No. TangleGuard performs **static code analysis** to help you understand and enforce your software architecture.
+Tracing tools like OpenTelemetry, on the other hand, operate **at runtime** to show how requests flow through a system.
+
+| Feature               | TangleGuard                          | Tracing Tools (e.g., OpenTelemetry)         |
+|-----------------------|--------------------------------------|---------------------------------------------|
+| Type of analysis      | Static (based on code)               | Dynamic (runtime behavior)                  |
+| Purpose               | Understand & enforce architecture    | Monitor, debug & trace runtime behavior     |
+| Output visualization  | Modules, layers, dependency diagrams | Spans, traces, service maps                 |
+| Use cases             | Architecture governance              | Observability, performance analysis         |
+| Scope                 | Entire codebase                      | Specific runtime paths or services          |
+
+
+
+### Is Rust really the only supported language?
+
+Yes, Rust is the only supported language at the moment.
+If the interest is enough to include other languages, we'll happily expand our support to other languages.
