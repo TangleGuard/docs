@@ -14,7 +14,6 @@ TangleGuard reveals the system’s key building blocks and shows you how they de
 It renders your source code as a directed graph diagram using [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) and the [Dagre layout](https://github.com/cytoscape/cytoscape.js-dagre).
 
 The diagrams are interactive. You can move the nodes and layers around as you like.
-Currently it's not possible to save the custom layout but that is a priority item on the [roadmap](/welcome/roadmap/).
 
 ## Layers overview
 The workspace overview shows the highest level components, which are the layers only.
