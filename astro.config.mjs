@@ -29,6 +29,10 @@ export default defineConfig({
           label: "Guides",
           autogenerate: { directory: "guide" },
         },
+        {
+          label: "Legal",
+          autogenerate: { directory: "legal" },
+        },
       ],
       social: [
         {
