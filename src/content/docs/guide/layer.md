@@ -1,7 +1,7 @@
 ---
 title: Manage Layers
 sidebar:
-  order: 2
+  order: 3
 ---
 
 On the side navigation, click on layers.
