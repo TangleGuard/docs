@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightThemeNova from "starlight-theme-nova";
-
+import mermaid from "astro-mermaid";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -70,5 +70,6 @@ export default defineConfig({
       // 	Hero: './src/components/hero.astro',
       // },
     }),
+    mermaid(),
   ],
 });

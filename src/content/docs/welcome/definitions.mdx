@@ -3,10 +3,11 @@ title: Definitions
 sidebar:
   order: 4
 ---
-import { Aside } from '@astrojs/starlight/components';
-import { CardGrid, Card } from '@astrojs/starlight/components';
 
-There are also different *views* on architecture, for example the deployment view or the runtime view.
+import { Aside } from "@astrojs/starlight/components";
+import { CardGrid, Card } from "@astrojs/starlight/components";
+
+There are also different _views_ on architecture, for example the deployment view or the runtime view.
 In TangleGuard we focus on components and the static relationships within the the source code of an application.
 
 Here, software architecture consists of the following things.
@@ -14,12 +15,12 @@ Architecture can feed abstract although it is very concrete and practical once y
 To make it more tangible, visualization help help massively.
 It makes talk about the design easy and is a way to communicate a architecture which someone has in mind.
 
-
 ## Components
 
 In software development, the source code should be separated in one way or the other.
 Therefore you need to introduce boundaries which specify those separations.
 In TangleGuard components are one of the following:
+
 - **modules**
 - **packages**
 - **layers**
@@ -28,13 +29,12 @@ Below You see two component `A` and `B`.
 Component `A` depends on component `B`.
 Components are visualized as rectangle whereas the dependency is visualized by the arrow as follows:
 
-![simple architecture ](../../../assets/architecture.svg)
+```mermaid
+flowchart LR
+  A --> B
+```
 
-A more realistic example would be this:
-
-![realistic simple architecture ](../../../assets/architecture-nested.svg)
-
-For actual, real world examples, you can check out these [examples](/welcome/examples) made with TangleGuard.
+For actual, real world examples, you can check out these [examples](/features/visualization/#exmaples) made with TangleGuard.
 
 ## Dependencies
 
@@ -42,15 +42,53 @@ Whatever you choose as container to group your logic, it needs to interact with 
 
 ## Layers
 
-A layer is a logical group of components.
+A layer is a logical group of components, which groups similar components together.
+They also come with the constraint of only having specific dependencies between them.
+
+### Technical Layers
+For a classical layered architecture, layers are usually arranged in a hierarchy.
+Layers are only allowed to depend on layers below them.
+
+```mermaid
+flowchart TD
+  LayerA --> LayerB
+  LayerB --> LayerC
+```
+
+Let's see an concrete example.
+
+```mermaid
+flowchart TD
+    subgraph UI [API Layer]
+        A[REST]
+        B[GraphQL]
+    end
+
+    subgraph Service [Service Layer]
+        C[Reports]
+        D[Calculation]
+    end
+
+    subgraph Data [Data Layer]
+        E[(Database)]
+        F[(Cache)]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+```
+
 Those groups can consists of technical components, like an `API` layer consisting of `REST` and `GraphQL` components.
 We reference to those layers as **technical layers** or **horizontal layers**.
 They are used by across business domains.
 They are visualized as wide, shallow blocks in the architecture diagram.
 
-![architecture layers ](../../../assets/definitions/definitions-layers-tech.svg)
 
 
+### Domain layers
 Layers can also consists out of feature components, which usually implement certain business logic.
 An example of a domain layer would be to have a `User` layer.
 It contains all components related to that user domain, like the API, models, services, etc.
@@ -61,6 +99,7 @@ Below you see two horizontal layers `A` and `B` and one vertical layer `C`.
 ![architecture layers ](../../../assets/definitions/definitions-layer-feat.svg)
 
 ## Dependency Rules
+
 To have a well-defined architecture, you need to define rules which specify which component is allowed to depend on which other component.
 This is how you'll be able to keep your architecture clean and maintainable.
 TangleGuard currently supports a whitelist which specifies which layers another layer can depend on.
@@ -72,6 +111,7 @@ _Not Allowed_ dependencies are marked in red.
 ![architecature dependency rules ](../../../assets/architecture-rules.svg)
 
 ## Cohesion and Coupling
+
 Cohesion and coupling are two important concepts in software architecture that help to ensure that components are well-designed and maintainable.
 
 Cohesion refers to the degree to which the elements within a component are related to each other. A component with high cohesion has a clear and well-defined purpose, and its elements work together to achieve that purpose. On the other hand, a component with low cohesion has elements that are loosely related and may not contribute to the overall purpose of the component.
@@ -82,6 +122,6 @@ For more details, visit https://blog.ttulka.com/how-cohesion-and-coupling-correl
 
 Depending on those characteristics, the architecture is either easy and cost efficient to maintain and or hard and expensive to maintain.
 
-
 ## Sources
+
 [1] https://blog.ttulka.com/how-cohesion-and-coupling-correlate/
