@@ -1,5 +1,5 @@
 ---
-title: Definitions
+title: Getting started
 sidebar:
   order: 4
 ---
@@ -46,6 +46,7 @@ A layer is a logical group of components, which groups similar components togeth
 They also come with the constraint of only having specific dependencies between them.
 
 ### Technical Layers
+
 For a classical layered architecture, layers are usually arranged in a hierarchy.
 Layers are only allowed to depend on layers below them.
 
@@ -86,23 +87,39 @@ We reference to those layers as **technical layers** or **horizontal layers**.
 They are used by across business domains.
 They are visualized as wide, shallow blocks in the architecture diagram.
 
-
-
 ### Domain layers
+
 Layers can also consists out of feature components, which usually implement certain business logic.
 An example of a domain layer would be to have a `User` layer.
 It contains all components related to that user domain, like the API, models, services, etc.
 They are also called **vertical layers** - they cut through the horizontal layers.
 
-Below you see two horizontal layers `A` and `B` and one vertical layer `C`.
+Below you see two vertical layers `A` and `B`.
 
-![architecture layers ](../../../assets/definitions/definitions-layer-feat.svg)
+```mermaid
+flowchart TB
+    subgraph F1 [Feature Layer 1]
+      direction TB
+      A[API]
+      B[Service]
+    end
+
+    subgraph F2 [Feature Layer 2]
+      direction TB
+      C[API]
+      D[Service]
+    end
+
+    A --> B
+    C --> D
+```
 
 ## Dependency Rules
 
-To have a well-defined architecture, you need to define rules which specify which component is allowed to depend on which other component.
-This is how you'll be able to keep your architecture clean and maintainable.
-TangleGuard currently supports a whitelist which specifies which layers another layer can depend on.
+Rules define to which components a specific component is allowed to depend on.
+Currently in TangleGuard, you can define the `depends_on` relationship between components.
+
+This is the fundament of the validator which keep your architecture in place.
 
 Here's how ti can be visualized:
 _Allowed_ dependencies are marked in green.
