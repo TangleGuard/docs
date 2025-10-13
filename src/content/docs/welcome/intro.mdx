@@ -3,28 +3,33 @@ title: Welcome
 sidebar:
   order: 1
 ---
-import { LinkCard } from '@astrojs/starlight/components';
-import C4 from '../../../components/c4.astro';
 
-👋 We're glad you're here!
+import { LinkCard } from "@astrojs/starlight/components";
+import C4 from "../../../components/c4.astro";
 
-This documentation will provide you with a comprehensive understanding of TangleGuard's features and benefits and will guide you through the installation and setup process.
+👋 Glad you're here!
 
-TangleGuard main purpose is to **generates component diagrams** from source code.
-This saves a lot of time and effort compared to creating them manually.
-Creating those manually and keep them up-to-date is painful.
+TangleGuard is a _static code analysis_ tool that helps to maintain a modular codebase.
 
-Your code is internally represented as graph (basically an adjacency list).
-This allows not only to render diagrams, but also to perform more analysis on the code.
-TangleGuard also offers to create **dependencies rules**, which describe how components are allowed to interact with each other.
+The user can browse the codebase as directed graph diagram and enforce package and module dependency rules. That way e.g. layered architectures, hexagonal architectures or clean architectures can be setup.
 
-These rules can be used to enforce an architectural style, like layered architectures, hexagonal architecture or clean architecture.
-That way the codebase remains in that intended structure over the time.
+Such architectures are easy-to-maintain, flexible, scalable and cost effective.
 
-It helps to create a **software architecture** which is an easy-to-maintain, hence scalable and cost effective.
-TangleGuard is a tool made for [Rust](https://www.rust-lang.org/).
-It's also mainly written in Rust.
+I can be used for Modular Monoliths or a single Microservices.
 
+## Components
+
+TangleGuard consists of two tools:
+
+- 📺 **GUI** a desktop app to monitor and setup the architecture
+- 🔎 **CLI** tool that runs in CI-Pipeline to enforce architectural rules
+
+Both are available for all major operating systems.
+Having those tools allow to keep the intended structure in place.
+
+The Code analysis is done in [Rust](https://www.rust-lang.org/).
+Therefore it's highly performant and reliable.
 
 ## C4 Documentation
-<C4/>
+
+<C4 />
