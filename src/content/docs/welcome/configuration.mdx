@@ -1,10 +1,10 @@
 ---
 title: Configuration File
 sidebar:
-  order: 4
+  order: 5
 ---
 
-import { FileTree } from '@astrojs/starlight/components';
+import { FileTree } from "@astrojs/starlight/components";
 import { Aside } from "@astrojs/starlight/components";
 
 All information and configurations associated to your architecture is stored in a file in the root of your project.
@@ -14,7 +14,7 @@ If you run tangle-guard for the first time, it will create that file for you.
 
 - src
 - Cargo.toml
-- **architecture-def.json**
+- **tangleguard.json**
 
 </FileTree>
 
@@ -55,7 +55,8 @@ Below you see an example configuration.
 }
 ```
 
-You can edit the file manually but it's highly recommended to use the web UI instead.
+You can edit the file manually but it's highly recommended to use the UI instead.
+
 <Aside type="caution">
   If you make changes to the configuration file directly, there is a change that
   the data is not consistent anymore. E.g. if you rename a layer, make sure you

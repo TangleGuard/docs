@@ -1,12 +1,12 @@
 ---
-title: Mange Domains
+title: Domains
 ---
 
 You can define **domains** in tangle-guard to reflect the business logic or responsibilities in your system to add more context to your architecture. Each domain consists of the following:
 
 - A **name**
 - A **subdomain type** (e.g., Core, Supporting, Generic)
-- A **domain-specific language** 
+- A **domain-specific language**
 
 Once defined, you can **map packages to domains**, so developers know which code belongs to which part of the business.
 

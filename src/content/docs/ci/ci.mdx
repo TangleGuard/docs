@@ -1,0 +1,31 @@
+---
+title: GitHub Action
+sidebar:
+  order: 1
+---
+
+import { LinkCard } from "@astrojs/starlight/components";
+
+You can easily integrate TangleGuard into your GitHub workflow by using the pre-built GitHub Action:
+
+<LinkCard
+  title="View Repository on GitHub"
+  href="https://github.com/TangleGuard/github-action"
+/>
+
+It validates your codebase against your TangleGuard configuration file and hence regarding your predefined rules.
+
+Here's a simple example of how to use the GitHub Action in your workflow:
+
+```yaml
+name: Architecture Check
+on: [push, pull_request]
+
+jobs:
+  validate-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TangleGuard/github-action@main
+```
+
+The job failed if any rule is violated.

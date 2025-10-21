@@ -8,26 +8,26 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "TangleGuard Docs",
-      plugins: [
-        starlightThemeNova({
-          nav: [
-            { label: "Website", href: "https://tangleguard.com" },
-            { label: "Download", href: "https://tangleguard.com/download" },
-          ],
-        }),
-      ],
+      // plugins: [
+      //   starlightThemeNova({
+      //     nav: [
+      //       { label: "Website", href: "https://tangleguard.com" },
+      //       { label: "Download", href: "https://tangleguard.com/download" },
+      //     ],
+      //   }),
+      // ],
       sidebar: [
         {
           label: "Introduction",
           autogenerate: { directory: "welcome" },
         },
         {
-          label: "Core Features",
-          autogenerate: { directory: "features" },
+          label: "Designer",
+          autogenerate: { directory: "designer" },
         },
         {
-          label: "Guides",
-          autogenerate: { directory: "guide" },
+          label: "Integration",
+          autogenerate: { directory: "ci" },
         },
         {
           label: "Legal",
