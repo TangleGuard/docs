@@ -66,6 +66,7 @@ export default defineConfig({
           },
         },
       ],
+      customCss: ["./src/styles/custom.css"],
       // components: {
       // 	Hero: './src/components/hero.astro',
       // },
