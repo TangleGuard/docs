@@ -26,8 +26,8 @@ export default defineConfig({
           autogenerate: { directory: "designer" },
         },
         {
-          label: "Integration",
-          autogenerate: { directory: "ci" },
+          label: "Validation",
+          autogenerate: { directory: "validation" },
         },
         {
           label: "Legal",
