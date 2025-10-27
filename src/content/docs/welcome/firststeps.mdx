@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Workflow
 sidebar:
   order: 4
 ---
@@ -7,22 +7,23 @@ sidebar:
 import { LinkCard } from "@astrojs/starlight/components";
 import { Steps } from "@astrojs/starlight/components";
 import { Aside } from "@astrojs/starlight/components";
-import { FileTree } from "@astrojs/starlight/components";
 
 TangleGuard is the place for you see all visualizations and where you can configure and document your architecture.
 
-When opening TangleGuard for a specific codebase for the first time, it will create a [configuration file](/start/configuration).
-Add this file to your repository.
-It is supposed to be committed.
+When opening the TangleGuard Designer for a specific codebase for the first time, it will create a [configuration file](/start/configuration) for you.
+within the repository.
 
 <Steps>
 
-1. **Define the Big Picture of your Codebase**
-   To be able to detect architecture erosion, TangleGuard needs to know about your target architecture. This can be done with the Desktop App - the so called Designer.
-   The target architecture is stored in the [configuration file](/start/configuration/) within your repository.
-   You have to define layer (group of components) and their allowed dependencies (rules).
+1. **Explore your codebase with the Designer**
+   View your codebase as a graph structure within the TangleGuard Designer.
+   You can view the components of your codebase and how they are related to each other.
 
-2. **Validate**
+1. **Define Layers within the Designer**
+   If you use a layered, onion-based or a hexagonal architecture in your codebase already, the you can define those layers within the Designer Desktop App. That way, TangleGuard can inform you about architecture drift. You can enforce those layers also with the TangleGuard CLI.
+   Those layers are stored in the [configuration file](/start/configuration/) as mentioned above.
+
+1. **Validate via Designer or CLI**
    Then, Validate your Architecture regularly. TangleGuard traverses your source code and compares the actual dependencies against the allowed dependencies.
    Once a violation is found, you better fix it. Alternatively, you enforce the rules via your CI/CD pipeline and eliminate not-allowed dependencies from the beginning.
 
@@ -31,63 +32,4 @@ It is supposed to be committed.
 <Aside type="tip">
   Use the Designer to explore your architecture and configure your target
   architecture.
-</Aside>
-
-## Configuration File
-
-All information and configurations associated to your architecture is stored in a file in the root of your project.
-If you run tangle-guard for the first time, it will create that file for you.
-
-<FileTree>
-
-- src
-- Cargo.toml
-- **tangleguard.json**
-
-</FileTree>
-
-The file is supposed to be included in Git.
-That way changes will be tracked over time and can be reviewed before merging like a normal code changes.
-
-Below you see an example configuration.
-
-```json
-{
-  "layers": [
-    {
-      "name": "Interaction",
-      "description": "",
-      "packages": ["rest-api", "graphql-api"]
-    }
-  ],
-  "packages": [
-    {
-      "name": "rest-api",
-      "dependencies": ["utils"],
-      "focus": "technical"
-    }
-  ],
-  "rules": [
-    {
-      "from": "Interaction",
-      "to": "Services"
-    }
-  ],
-  "domains": [
-    {
-      "name": "User Management",
-      "dsl": ["OAuth", "Token", "Role"],
-      "domain_type": "Generic"
-    }
-  ]
-}
-```
-
-You can edit the file manually but it's highly recommended to use the UI instead.
-
-<Aside type="caution">
-  If you make changes to the configuration file directly, there is a change that
-  the data is not consistent anymore. E.g. if you rename a layer, make sure you
-  rename the layer also within the rules. To omit this problem, it's recommended
-  to adjust the configuration only via the UI.
 </Aside>

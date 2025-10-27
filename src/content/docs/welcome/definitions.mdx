@@ -45,6 +45,10 @@ Whatever you choose as container to group your logic, it needs to interact with 
 A layer is a logical group of components, which groups similar components together.
 They also come with the constraint of only having specific dependencies between them.
 
+Layers are implemented in TangleGuard in two ways:
+- For a workspace, a layer is defined by a group of packages
+- For a single crate, a layer is defined as a directory
+
 ### Technical Layers
 
 For a classical layered architecture, layers are usually arranged in a hierarchy.
