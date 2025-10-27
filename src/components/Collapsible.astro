@@ -1,0 +1,31 @@
+---
+export interface Props {
+  title: string;
+  open?: boolean;
+  variant?: 'default' | 'info' | 'tip' | 'caution' | 'danger';
+}
+
+const { title, open = false, variant = 'default' } = Astro.props;
+
+const variantClass = variant !== 'default' ? `variant-${variant}` : '';
+
+const iconMap = {
+  default: '▶',
+  info: 'ℹ',
+  tip: '💡',
+  caution: '⚠',
+  danger: '⚠'
+};
+---
+
+<details class={`collapsible ${variantClass}`.trim()} open={open}>
+  <summary>
+    <span class="collapsible-icon" aria-hidden="true">
+      {iconMap[variant]}
+    </span>
+    <span>{title}</span>
+  </summary>
+  <div class="collapsible-content">
+    <slot />
+  </div>
+</details>

@@ -27,3 +27,121 @@
 	--sl-color-gray-7: #f6f6f9;
 	--sl-color-black: #ffffff;
 }
+
+/* Collapsible component styles */
+.collapsible {
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	border: 1px solid var(--sl-color-gray-5);
+	background: var(--sl-color-gray-6);
+}
+
+.collapsible summary {
+	list-style: none;
+	cursor: pointer;
+	padding: 1rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: background-color 0.2s ease;
+	background: var(--sl-color-gray-6);
+	color: var(--sl-color-white);
+}
+
+.collapsible summary:hover {
+	background: var(--sl-color-gray-5);
+}
+
+.collapsible summary::-webkit-details-marker {
+	display: none;
+}
+
+.collapsible summary::-moz-list-bullet {
+	list-style-type: none;
+}
+
+.collapsible[open] .collapsible-icon {
+	transform: rotate(90deg);
+}
+
+.collapsible-icon {
+	font-size: 0.875rem;
+	transition: transform 0.2s ease;
+	user-select: none;
+}
+
+.collapsible-content {
+	padding: 1rem;
+	padding-top: 0;
+	border-top: 1px solid var(--sl-color-gray-5);
+	background: var(--sl-color-gray-6);
+	animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Variant styles */
+.collapsible.variant-info {
+	border-color: var(--sl-color-blue);
+	background: color-mix(in srgb, var(--sl-color-blue) 10%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-info summary {
+	background: color-mix(in srgb, var(--sl-color-blue) 15%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-tip {
+	border-color: var(--sl-color-green);
+	background: color-mix(in srgb, var(--sl-color-green) 10%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-tip summary {
+	background: color-mix(in srgb, var(--sl-color-green) 15%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-caution {
+	border-color: var(--sl-color-orange);
+	background: color-mix(in srgb, var(--sl-color-orange) 10%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-caution summary {
+	background: color-mix(in srgb, var(--sl-color-orange) 15%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-danger {
+	border-color: var(--sl-color-red);
+	background: color-mix(in srgb, var(--sl-color-red) 10%, var(--sl-color-gray-6));
+}
+
+.collapsible.variant-danger summary {
+	background: color-mix(in srgb, var(--sl-color-red) 15%, var(--sl-color-gray-6));
+}
+
+/* Ensure proper spacing for nested content */
+.collapsible .prose > *:first-child {
+	margin-top: 0;
+}
+
+.collapsible .prose > *:last-child {
+	margin-bottom: 0;
+}
+
+/* Override content margins within collapsible */
+.collapsible .collapsible-content > *:first-child {
+	margin-top: 0;
+}
+
+.collapsible .collapsible-content > *:last-child {
+	margin-bottom: 0;
+}

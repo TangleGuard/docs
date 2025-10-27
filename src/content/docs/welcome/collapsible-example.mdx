@@ -1,0 +1,136 @@
+---
+title: Collapsible Content Example
+description: Examples of how to use the Collapsible component in your docs
+sidebar:
+  order: 99
+  hidden: true
+---
+
+import Collapsible from '../../../components/Collapsible.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+# Using Collapsible Components
+
+The `Collapsible` component allows you to create expandable sections in your documentation. This is perfect for FAQ sections, detailed explanations, or any content you want to keep accessible but not always visible.
+
+## Basic Usage
+
+<Collapsible title="Basic Example">
+This is a simple collapsible section. You can put any markdown content here, including:
+
+- Lists
+- **Bold text**
+- `code snippets`
+- Links and more!
+</Collapsible>
+
+## Variants
+
+The component supports different variants to match different types of content:
+
+<Collapsible title="Information Section" variant="info">
+This is an informational collapsible section. Use this for additional context or helpful information that users might want to reference.
+
+```javascript
+console.log('This is some example code!');
+```
+</Collapsible>
+
+<Collapsible title="Helpful Tips" variant="tip">
+This is a tip section. Great for best practices, recommendations, or helpful hints.
+
+> **Pro tip:** You can nest other components inside collapsible sections too!
+</Collapsible>
+
+<Collapsible title="Important Warning" variant="caution">
+This is a caution section. Use this for important warnings or things users should be careful about.
+
+<Badge text="Important" variant="caution" />
+</Collapsible>
+
+<Collapsible title="Critical Information" variant="danger">
+This is a danger section. Use sparingly for critical warnings or breaking changes.
+</Collapsible>
+
+## Open by Default
+
+<Collapsible title="This Section is Open by Default" open={true}>
+Sometimes you want a section to be expanded by default. Just add the `open` prop!
+
+This is useful for important information that users should see immediately but might want to collapse later.
+</Collapsible>
+
+## FAQ Example
+
+Here's how you might use collapsible sections for a FAQ:
+
+<Collapsible title="What is TangleGuard?">
+TangleGuard is a tool for monitoring application components and enforcing dependency rules. It helps you maintain clean architecture by visualizing your component relationships and ensuring your intended structure stays in place.
+</Collapsible>
+
+<Collapsible title="How do I install TangleGuard?">
+You can install TangleGuard by downloading the latest release from our GitHub page or by using our CLI tool. Check out the [installation guide](/welcome/intro/) for detailed instructions.
+</Collapsible>
+
+<Collapsible title="Can I use TangleGuard with languages other than Rust?">
+Currently, Rust is the only supported language. However, if there's enough interest, we're happy to expand support to other languages in the future.
+</Collapsible>
+
+<Collapsible title="Is TangleGuard free to use?" variant="info">
+TangleGuard offers different pricing tiers:
+
+- **Free**: Perfect for evaluation (up to 5 packages)
+- **Starter**: €79 for small projects (up to 20 packages)
+- **Professional**: €149 for serious teams (unlimited packages)
+
+Check out our [pricing page](/pricing/) for more details.
+</Collapsible>
+
+## Code Example
+
+<Collapsible title="How to use in your MDX files">
+To use the Collapsible component in your MDX files, first import it:
+
+```mdx
+---
+title: Your Page Title
+---
+import Collapsible from '../../../components/Collapsible.astro';
+
+# Your Content
+
+<Collapsible title="Your Section Title">
+Your collapsible content goes here!
+</Collapsible>
+```
+
+Available props:
+- `title` (required): The title shown in the header
+- `open` (optional): Whether the section is open by default (default: false)
+- `variant` (optional): Visual style - 'default', 'info', 'tip', 'caution', or 'danger'
+</Collapsible>
+
+## Advanced Usage
+
+<Collapsible title="Nested Components and Complex Content" variant="tip">
+You can include complex content inside collapsible sections:
+
+### Subheadings work great
+
+You can have multiple levels of content organization.
+
+| Feature | Support |
+|---------|---------|
+| Markdown | ✅ |
+| Components | ✅ |
+| Code blocks | ✅ |
+| Tables | ✅ |
+
+<Badge text="New Feature" variant="success" />
+
+Even other Starlight components work perfectly!
+</Collapsible>
+
+---
+
+The Collapsible component helps keep your documentation clean and organized while still providing access to detailed information when needed.

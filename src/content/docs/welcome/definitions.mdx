@@ -6,6 +6,7 @@ sidebar:
 
 import { Aside } from "@astrojs/starlight/components";
 import { CardGrid, Card } from "@astrojs/starlight/components";
+import Collapsible from "../../../components/Collapsible.astro";
 
 There are also different _views_ on architecture, for example the deployment view or the runtime view.
 In TangleGuard we focus on components and the static relationships within the the source code of an application.
@@ -46,52 +47,56 @@ A layer is a logical group of components, which groups similar components togeth
 They also come with the constraint of only having specific dependencies between them.
 
 Layers are implemented in TangleGuard in two ways:
+
 - For a workspace, a layer is defined by a group of packages
 - For a single crate, a layer is defined as a directory
 
-### Technical Layers
+Below are some general information about layers.
 
-For a classical layered architecture, layers are usually arranged in a hierarchy.
-Layers are only allowed to depend on layers below them.
+<Collapsible title="Technical Layers">
+    For a classical layered architecture, layers are usually arranged in a hierarchy.
+    Layers are only allowed to depend on layers below them.
 
-```mermaid
-flowchart TD
-  LayerA --> LayerB
-  LayerB --> LayerC
-```
+    ```mermaid
+    flowchart TD
+      LayerA --> LayerB
+      LayerB --> LayerC
+    ```
 
-Let's see an concrete example.
+    Let's see an concrete example.
 
-```mermaid
-flowchart TD
-    subgraph UI [API Layer]
-        A[REST]
-        B[GraphQL]
-    end
+    ```mermaid
+    flowchart TD
+        subgraph UI [API Layer]
+            A[REST]
+            B[GraphQL]
+        end
 
-    subgraph Service [Service Layer]
-        C[Reports]
-        D[Calculation]
-    end
+        subgraph Service [Service Layer]
+            C[Reports]
+            D[Calculation]
+        end
 
-    subgraph Data [Data Layer]
-        E[(Database)]
-        F[(Cache)]
-    end
+        subgraph Data [Data Layer]
+            E[(Database)]
+            F[(Cache)]
+        end
 
-    A --> C
-    B --> C
-    C --> D
-    C --> E
-    D --> F
-```
+        A --> C
+        B --> C
+        C --> D
+        C --> E
+        D --> F
+    ```
 
-Those groups can consists of technical components, like an `API` layer consisting of `REST` and `GraphQL` components.
-We reference to those layers as **technical layers** or **horizontal layers**.
-They are used by across business domains.
-They are visualized as wide, shallow blocks in the architecture diagram.
+    Those groups can consists of technical components, like an `API` layer consisting of `REST` and `GraphQL` components.
+    We reference to those layers as **technical layers** or **horizontal layers**.
+    They are used by across business domains.
+    They are visualized as wide, shallow blocks in the architecture diagram.
 
-### Domain layers
+</Collapsible>
+
+<Collapsible title="Domain or Feature Layers">
 
 Layers can also consists out of feature components, which usually implement certain business logic.
 An example of a domain layer would be to have a `User` layer.
@@ -117,6 +122,8 @@ flowchart TB
     A --> B
     C --> D
 ```
+
+</Collapsible>
 
 ## Dependency Rules
 
