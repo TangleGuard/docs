@@ -1,11 +1,13 @@
 ---
 title: Metrics
-draft: true
+sidebar:
+  order: 4
 ---
-import { Aside } from '@astrojs/starlight/components';
-import { Badge } from '@astrojs/starlight/components';
 
-Tangle-guard includes a **dashboard** with key architectural metrics — giving you visibility into the health and maintainability of your system.
+import { Aside } from "@astrojs/starlight/components";
+import { Badge } from "@astrojs/starlight/components";
+
+TangleGuard also includes key architectural metrics — giving you visibility into the health and maintainability of your system.
 
 Metrics include:
 
@@ -17,12 +19,8 @@ For a full list of supported metrics, check the [scanner metrics section](scanne
 
 ### Design Principle Metrics
 
-<Aside>
-  These metrics help evaluate **responsibility, stability, and resistance to
-  change** in your modules.
-</Aside>
-
-The scanner also calculates metrics.
+These metrics help evaluate **responsibility, stability, and resistance to
+change** in your modules.
 
 In addition to dependency graphs, the scanner calculates **architecture-focused metrics** to help evaluate code structure and modularity.
 

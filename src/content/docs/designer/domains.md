@@ -1,5 +1,7 @@
 ---
-title: Domains
+title: Domains (Experimental)
+sidebar:
+  order: 5
 ---
 
 You can define **domains** in tangle-guard to reflect the business logic or responsibilities in your system to add more context to your architecture. Each domain consists of the following:

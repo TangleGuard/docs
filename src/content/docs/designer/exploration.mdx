@@ -4,33 +4,47 @@ sidebar:
   order: 1
 ---
 
+import { Aside } from "@astrojs/starlight/components";
+
 TangleGuard offers the capability to explore the source code as an interactive graph diagram.
-It provides you with high level diagrams which shows your declared layers and how their are related to each other and more in depth diagrams for each package, where you can see how your modules are related to each other.
 
-- Workspace visualization as **graph diagram**
-- Package and module structure visualizations
+It provides you with high level diagrams which reveals the system’s key building blocks and how they depend on one another.
 
-TangleGuard reveals the system’s key building blocks and shows you how they depend on one another.
-It renders your source code as a directed graph diagram using [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) and the [Dagre layout](https://github.com/cytoscape/cytoscape.js-dagre).
+It does all of this by scanning your codebase each time you open a diagram in the designer.
+The rendering it done using [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) and the [Dagre layout](https://github.com/cytoscape/cytoscape.js-dagre).
 
-The diagrams are interactive. You can move the nodes and layers around as you like.
+The _Designer_ allows you to browse those diagrams.
+Those diagrams are interactive. You can move nodes and layers around as you like. Soon your custom node and layer arrangement will be persisted. Right now TangleGuard recalculates the layout each time a diagram gets opened.
 
-## Layers overview
+## The Views
 
-The workspace overview shows the highest level components, which are the layers only.
+There are multiple views in the designer which will be explained next.
+
+<Aside>
+  There are two major kinds of diagram currently. Those will be likely be
+  combined into one, gigantic unified view
+</Aside>
+
+### Workspace Overview
+
+The workspace overview shows you all the packages from the workspace and how they are related to each other.
+![Dashboard](../../../assets/dashboard.jpeg)
+
+There's also a **layers overview** which shows you your configured layers and how they depend on each other.
 
 ![Dashboard](../../../assets/dashboard.jpeg)
 
-## Layers and packages
+### Package Overview
 
 You can also explore the internals of each package.
-Each node of the graph represents a package, and the edges represent dependencies between them.
+In that case, each node of the graph represents a **module**.
+The edges represent dependencies between them, so same as for the workspace overview.
 
 ![Layers and packages](../../../assets/packages-within-layers.jpeg)
 
-## Modules within a package
-
-![Metrics](../../../assets/package-internals.jpeg)
+You can configure how much nesting you want to see in the package overview.
+As per default, the diagram shows you the top level modules first.
+Using the slider you have the ability to go **four levels deep**.
 
 ## Evaluate the Structure
 

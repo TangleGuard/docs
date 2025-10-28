@@ -26,7 +26,7 @@ export default defineConfig({
           autogenerate: { directory: "designer" },
         },
         {
-          label: "Validation",
+          label: "Linter",
           autogenerate: { directory: "validation" },
         },
         {
