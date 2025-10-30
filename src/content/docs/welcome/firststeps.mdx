@@ -1,31 +1,35 @@
 ---
 title: Workflow
 sidebar:
-  order: 4
+  order: 5
 ---
 
 import { LinkCard } from "@astrojs/starlight/components";
 import { Steps } from "@astrojs/starlight/components";
 import { Aside } from "@astrojs/starlight/components";
 
-TangleGuard is the place for you see all visualizations and where you can configure and document your architecture.
+TangleGuard can be uses in various ways, depending on your needs.
 
-When opening the TangleGuard Designer for a specific codebase for the first time, it will create a [configuration file](/start/configuration) for you.
-within the repository.
+However, below you see the recommended workflow for a software development team.
 
 <Steps>
 
-1. **Explore your codebase with the Designer**
-   View your codebase as a graph structure within the TangleGuard Designer.
-   You can view the components of your codebase and how they are related to each other.
+1. **Codebase Exploration via the Designer**
+   Browse your codebase as a graph within the TangleGuard Designer.
+   You can see the packages and modules of your codebase and how they are connected to each other. Take your time to understand the structure and relationships between different components. You'll likely be surprised about how components depend on each other.
 
-1. **Define Layers within the Designer**
-   If you use a layered, onion-based or a hexagonal architecture in your codebase already, the you can define those layers within the Designer Desktop App. That way, TangleGuard can inform you about architecture drift. You can enforce those layers also with the TangleGuard CLI.
-   Those layers are stored in the [configuration file](/start/configuration/) as mentioned above.
+2. **Identify issues and weird dependencies**
+   As you likely know, components are supposed to be loosely coupled. Often autocompletion, AI coding and missing defined boundaries lead to dependencies which will make the maintenance of your code harder. Hover over nodes in the visualization and find dependencies you did not expect, and refactor them soon.
 
-1. **Validate via Designer or CLI**
-   Then, Validate your Architecture regularly. TangleGuard traverses your source code and compares the actual dependencies against the allowed dependencies.
-   Once a violation is found, you better fix it. Alternatively, you enforce the rules via your CI/CD pipeline and eliminate not-allowed dependencies from the beginning.
+3. **Define Layers within the Designer**
+   In the best case, you codebase is build as a layered, onion-based or a hexagonal architecture already. Then you can define those layers easily with the Designer Desktop App.
+   That way, TangleGuard informs you about architecture drift and dependencies which violate your layered principles.
+   Those layers definition are stored in the [configuration file](/start/configuration/).
+
+4. **Validate via Designer or CLI**
+   You you are free of violations and want to stay free of violations, you should enforce your target architecture within your CI/CD pipeline via the [TangleGuard GitHub Action](https://github.com/TangleGuard/github-action). That way can reject code with violations.
+   Alternatively, you can use the [TangleGuard CLI](https://github.com/TangleGuard/cli) directly on your computer to validate your architecture locally. Once a violation is found, you better fix it.
+   Another option, would be to have the Designer open while developing or just looking in it regularly. Then, Validate your architecture regularly. TangleGuard traverses your source code and compares the actual dependencies against the allowed dependencies.
 
 </Steps>
 

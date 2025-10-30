@@ -1,13 +1,13 @@
 ---
 title: Configuration file
 sidebar:
-  order: 5
+  order: 2
 ---
 
 import { Aside } from "@astrojs/starlight/components";
 import { FileTree } from "@astrojs/starlight/components";
 
-All information and configuration associated with your architecture is stored in a JSON file in the root of your project:
+The configuration made within the desktop app (the *designer*), are stored in a JSON file named `tangleguard.json` in the root of your software project.
 
 <FileTree>
 
@@ -17,12 +17,12 @@ All information and configuration associated with your architecture is stored in
 
 </FileTree>
 
-If you use the Desktop App for the first time, it will create that file for you. The file is supposed to be included in Git.
+If you use the Desktop App for the first time, TangleGuard will create that file for you. The file is supposed to be included in Git. Below are some advantages listed to have such file.
 
-<Aside type="tip">
-- A structured way to track changes to your architecture
+<Aside type="tip" title="Architecture Definition File">
+- Architecture commitments directly within the codebase
+- Structured way to track changes of your architecture
 - Let's you review architectural changes
-
 </Aside>
 
 Below you see an example configuration.

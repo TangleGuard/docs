@@ -7,25 +7,27 @@ sidebar:
 import { LinkCard } from "@astrojs/starlight/components";
 import C4 from "../../../components/c4.astro";
 
-👋 Glad you're here!
+👋 Welcome! I'm Glad you're here!
 
-TangleGuard is a _static code analysis_ tool that helps to maintain a modular codebase.
+TangleGuard is a _static code analysis_ tool that helps you maintaining a modular codebase.
 
-The user can browse the codebase as directed graph diagram and enforce package and module dependency rules. That way e.g. layered architectures, hexagonal architectures or clean architectures can be setup.
+You can browse your codebase as directed graph diagram, see how your components depend on each other.
+You can also design your target software architecture within TangleGuard by defining layers and dependency rules.
 
+That makes settings up and maintaining e.g. layered architectures, hexagonal architectures or clean architectures super easy.
 Such architectures are easy-to-maintain, flexible, scalable and cost effective.
 
-I can be used for Modular Monoliths or a single Microservices.
+I can be used for (modular) Monoliths, single Microservices, libraries, binaries and more.
 
 ## Components
 
 TangleGuard consists of two tools:
 
-- 📺 **GUI** a desktop app to monitor and setup the architecture
-- 🔎 **CLI** tool that runs in CI-Pipeline to enforce architectural rules
+- 📺 **GUI** desktop app to monitor and setup the architecture - the _Designer_
+- 🔎 **CLI** tool that runs in CI-Pipeline to enforce architectural rules - the _Linter_
 
 Both are available for all major operating systems.
-Having those tools allow to keep the intended structure in place.
+Having those running allows you to detect wired inter dependencies early, so your intended structure stays in place.
 
 The Code analysis is done in [Rust](https://www.rust-lang.org/).
 Therefore it's highly performant and reliable.
