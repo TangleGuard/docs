@@ -3,19 +3,22 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightThemeNova from "starlight-theme-nova";
 import mermaid from "astro-mermaid";
+import starlightImageZoom from "starlight-image-zoom";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
       title: "TangleGuard Docs",
-      // plugins: [
-      //   starlightThemeNova({
-      //     nav: [
-      //       { label: "Website", href: "https://tangleguard.com" },
-      //       { label: "Download", href: "https://tangleguard.com/download" },
-      //     ],
-      //   }),
-      // ],
+      plugins: [
+        //   starlightThemeNova({
+        //     nav: [
+        //       { label: "Website", href: "https://tangleguard.com" },
+        //       { label: "Download", href: "https://tangleguard.com/download" },
+        //     ],
+        //   }),
+        starlightImageZoom(),
+      ],
       sidebar: [
         {
           label: "Introduction",
