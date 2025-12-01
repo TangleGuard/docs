@@ -3,22 +3,19 @@ title: Intro
 sidebar:
   order: 1
 ---
-import { LinkCard } from '@astrojs/starlight/components';
-import { Image } from 'astro:assets';
 
+import { LinkCard } from "@astrojs/starlight/components";
+import { Aside } from '@astrojs/starlight/components';
 
-TangleGuard is also a structural linter which verifies your source code regarding user-defined rules. That way an architect can enforce the planned architecture. The developers run the CLI tool while working on changes to get notified about violations. It can also be integrated into the CI/CD pipeline. The only rules currently supported are dependency rules between layers.
+TangleGuard provides also a structural linter.
+This CLI tool only verifies your source code regarding the defined dependency rules which you define via the TangleGuard Designer, see [here](/designer/layer).
 
-- **Define layers** and associated packages with those layers
-- Define **dependency rules** between layers.
+With this tiny tool, you can enforce the dependency rules via a CI Pipeline, like a GitHub Action.
+TangleGuard will validate the source code and error out when rule violations get detected.
+This way, TangleGuard makes sure that the source code is aligned the rules and hence your targeted design stays in place, without the need for manual reviews.
 
-TangleGuard validated your architecture in regards to user defined rules.
+```bash
+tangleguard validate
+```
 
-The targeted architecture is based on those rule.
-TangleGuard makes sure that the source code is aligned the rules and hence with the targeted design.
-
-Head over to `Rule Violations` and click the `Validate` button to get the latest updates.
-
-![Dashboard](../../../assets/rule-violations.png)
-
-When a violation is found it usually should be mitigated via a refactoring.
+<Aside type="caution">TangleGuard is currently being rewritten. The dependency rules are under construction.</Aside>

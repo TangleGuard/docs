@@ -1,5 +1,5 @@
 ---
-title: Layer Configuration
+title: Dependency Rules
 sidebar:
   order: 2
 ---
@@ -7,9 +7,15 @@ sidebar:
 import { Steps } from "@astrojs/starlight/components";
 import { Badge } from "@astrojs/starlight/components";
 import { YouTube } from "astro-embed";
+import { Aside } from '@astrojs/starlight/components';
 
-You can configure your workspace to have layers.
-Specific packages can also have layers.
+You can configure dependency rules within the Designer. 
+Currently, you have those two options:
+- Group packages within layers and define how layers can interact with each other
+- Define how modules within specific packages can interact with each other 
+
+<Aside type="caution">TangleGuard is currently being rewritten. The dependency rules are under construction.</Aside>
+
 
 ## Defining Layers
 
