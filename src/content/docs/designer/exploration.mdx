@@ -9,42 +9,32 @@ import { Aside } from "@astrojs/starlight/components";
 TangleGuard offers the capability to explore the source code as an interactive graph diagram.
 
 It provides you with high level diagrams which reveals the system’s key building blocks and how they depend on one another.
-
-It does all of this by scanning your codebase each time you open a diagram in the designer.
 The rendering it done using [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) and the [Dagre layout](https://github.com/cytoscape/cytoscape.js-dagre).
 
-The _Designer_ allows you to browse those diagrams.
+Within the _Designer_ you can browse those diagram and configure it as you need.
 Those diagrams are interactive. You can move nodes and layers around as you like. Soon your custom node and layer arrangement will be persisted. Right now TangleGuard recalculates the layout each time a diagram gets opened.
 
-## The Views
+## Package Overview
 
-There are multiple views in the designer which will be explained next.
+When you first open the diagram, the depth level is set to 0. This means that only the highest level components get shown, which are the packages. You can see how the packages are connected to each other. The number in brackets is the line count of the package.
 
-<Aside>
-  There are two major kinds of diagram currently. Those will be likely be
-  combined into one, gigantic unified view
-</Aside>
+Below is an example of [ripgrep](https://github.com/BurntSushi/ripgrep).
+![PackageOverview](../../../assets/unifiedview-l0.png)
 
-### Workspace Overview
+On the top right, you see a button which opens a model, where you can also select which packages you want to get displayed.
 
-The workspace overview shows you all the packages from the workspace and how they are related to each other.
-![Dashboard](../../../assets/dashboard.jpeg)
+## Module Overview
 
-There's also a **layers overview** which shows you your configured layers and how they depend on each other.
+If you select a depth level more then 0 by using the slider, all the top level modules will be shown in addition to the packages.
+You can go 4 levels deep. This might lead to a very large graph.
 
-![Dashboard](../../../assets/dashboard.jpeg)
+The edges are solid for a direct dependency, meaning those components are directly connected via an import statement.
+The edges are dashed for an indirect dependency, which means that the component has nested components which cause the dependencies to get propagated up to visible node.
 
-### Package Overview
+![ModuleOverview](../../../assets/unifiedview-l1.png)
 
-You can also explore the internals of each package.
-In that case, each node of the graph represents a **module**.
-The edges represent dependencies between them, so same as for the workspace overview.
-
-![Layers and packages](../../../assets/packages-within-layers.jpeg)
-
-You can configure how much nesting you want to see in the package overview.
-As per default, the diagram shows you the top level modules first.
-Using the slider you have the ability to go **four levels deep**.
+You can click on each edges to get the dependencies information displayed in a panel.
+In addition, you can configure the edges you want to get displayed, by using the dependency filter.
 
 ## Evaluate the Structure
 

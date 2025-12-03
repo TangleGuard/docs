@@ -7,15 +7,18 @@ sidebar:
 import { Steps } from "@astrojs/starlight/components";
 import { Badge } from "@astrojs/starlight/components";
 import { YouTube } from "astro-embed";
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
-You can configure dependency rules within the Designer. 
+You can configure dependency rules within the Designer.
 Currently, you have those two options:
+
 - Group packages within layers and define how layers can interact with each other
-- Define how modules within specific packages can interact with each other 
+- Define how modules within specific packages can interact with each other
 
-<Aside type="caution">TangleGuard is currently being rewritten. The dependency rules are under construction.</Aside>
-
+<Aside type="caution">
+  TangleGuard is currently being rewritten. The dependency rules are under
+  construction.
+</Aside>
 
 ## Defining Layers
 
@@ -38,13 +41,6 @@ The following steps need to be made to create a layered architecture:
 3. Crete the allowed relationship between the new layer and other layers by using _dependency rules_, see below in a later section.
 
 </Steps>
-
-Here’s a mockup showing a classic **layered architecture** — with two horizontal layers and one vertical layer for shared components.
-
-![Creating a layer](../../../assets/layercreation.jpeg)
-
-The new layer will appear in the list.
-You can also see a visual preview of your architecture while configuring.
 
 ### Layers above Modules
 
@@ -79,7 +75,7 @@ You can view all the existing rules on the rules page.
 If you want to have a horizontal layered architecture, you need to allow a layer to have dependencies to the layers below.
 :::
 
-## Using templates <Badge text="workspace only" variant="note" />
+## Templates <Badge text="workspace only" variant="note" />
 
 For a workspace you can choose one of a set of templates. The following templates are available:
 
@@ -88,11 +84,3 @@ For a workspace you can choose one of a set of templates. The following template
 
 which create the layers _and_ the dependency rules for you.
 This takes work off your hands then using a horizontal layered architecture or clean architecture.
-
-## Edit a layer
-
-You can edit the layer at any time.
-Change the name of the layer just by changing the name of the input field.
-It will get saved when the input is not focused anymore.
-
-![Renaming a layer](../../../assets/layerrename.jpeg)
