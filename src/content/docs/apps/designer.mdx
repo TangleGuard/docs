@@ -1,30 +1,36 @@
 ---
-title: Dependency Rules
+title: Designer Desktop
 sidebar:
-  order: 2
+  order: 0
 ---
 
+import { LinkCard } from "@astrojs/starlight/components";
 import { Steps } from "@astrojs/starlight/components";
 import { Badge } from "@astrojs/starlight/components";
 import { YouTube } from "astro-embed";
 import { Aside } from "@astrojs/starlight/components";
 
-
-<Aside type="caution">
-  TangleGuard is currently being rewritten. The dependency rule system is under
-  construction.
-</Aside>
-
+TangleGuard Designer is a desktop app available for all major operating systems.
 The Designer is a visual editor that lets you create and edit your target architecture by defining dependency rules.
 
+It allows you to **browse any local codebase visually** as dependency graph without the need to have admin access to the repository, see the [exploration feature](/features/exploration/).
+
+In addition, this is the place where you define your _target architecture_ in form of dependency rules - the **architectural lints**.
+The desktop app can also validates the codebase against those rules/lints right away.
+As a result, you get a list of violations, as well is a graph diagram showing the violated dependencies.
+More about the linting in general [here](/features/linter).
+
+
+
+
 ## Define Dependency Rules
+<Aside type="caution">The dependency rule system is under construction.</Aside>
 
 You can define if components are allowed to depend on each other not.
 
 ![Rules for layers](../../../assets/layerrules.jpeg)
 
 You can view all the existing rules on the rules page.
-
 
 ## Defining Layers
 
@@ -67,7 +73,6 @@ This might change in the future and enhanced so that a layers can be specified b
 
 <YouTube id="8p3Ksvdu618" />
 
-
 ## Templates <Badge text="workspace only" variant="note" />
 
 For a workspace you can choose one of a set of templates. The following templates are available:
@@ -79,5 +84,6 @@ which create the layers _and_ the dependency rules for you.
 This takes work off your hands then using a horizontal layered architecture or clean architecture.
 
 ## Violations
+
 You can check your source code for violations right in the desktop app.
 TangleGuard scans the source code and finds dependencies which violate the rules/lints.

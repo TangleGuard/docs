@@ -1,11 +1,21 @@
 ---
-title: Configuration file
+title: Linter
 sidebar:
   order: 2
 ---
-
-import { Aside } from "@astrojs/starlight/components";
+import { LinkCard } from "@astrojs/starlight/components";
+import { Aside } from '@astrojs/starlight/components';
 import { FileTree } from "@astrojs/starlight/components";
+
+
+<Aside type="caution">The dependency rules are under construction.</Aside>
+
+TangleGuard provides also a structural linter, to keep your project's architecture in place - also when working in large teams.
+
+This CLI tool only verifies your source code regarding the defined dependency rules which you define via the TangleGuard Designer, see [here](/designer/layer).
+
+
+## Configuration File 
 
 The configuration made within the desktop app (the *designer*), are stored in a JSON file named `tangleguard.json` in the root of your software project.
 
@@ -61,7 +71,7 @@ Below you see an example configuration.
 
 You can edit the file manually but it's highly recommended to use the UI instead.
 
-<Aside type="caution">
+<Aside type="note">
   If you make changes to the configuration file directly, there is a change that
   the data is not consistent anymore. E.g. if you rename a layer, make sure you
   rename the layer also within the rules. To omit this problem, it's recommended

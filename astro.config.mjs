@@ -25,12 +25,12 @@ export default defineConfig({
           autogenerate: { directory: "welcome" },
         },
         {
-          label: "Designer",
-          autogenerate: { directory: "designer" },
+          label: "Key Features",
+          autogenerate: { directory: "features" },
         },
         {
-          label: "Linter",
-          autogenerate: { directory: "validation" },
+          label: "Apps",
+          autogenerate: { directory: "apps" },
         },
         {
           label: "Legal",

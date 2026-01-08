@@ -1,0 +1,58 @@
+---
+title: GitHub Action
+sidebar:
+  order: 1
+---
+
+import { LinkCard } from "@astrojs/starlight/components";
+
+You can easily integrate TangleGuard into your GitHub workflow by using the pre-built GitHub Action.
+
+By providing inputs values to the action, you can basically choose between two modes:
+
+- **Remote**: This uploads the results to TangleGuard web app for further analysis and actions.
+- **Local**: This checks the results on within the github runner and exits when rule violations gets found. This is useful for CI/CD pipelines where you want to fail the build if any rule is violated.
+
+<LinkCard
+  title="View on GitHub"
+  href="https://github.com/TangleGuard/github-action"
+/>
+
+## Upload to Cloud
+It validates your codebase against your TangleGuard configuration file and hence regarding your predefined rules.
+
+Here's a simple example of how to use the GitHub Action in your workflow:
+
+```yaml
+name: Architecture Check
+on: [push, pull_request]
+
+jobs:
+  validate-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TangleGuard/github-action@main
+```
+
+The job failed if any rule is violated.
+
+```bash
+Scanning workspace and uploading results to TangleGuard Cloud...
+ _____                  _        ___                     _
+/__   \__ _ _ __   __ _| | ___  / _ \_   _  __ _ _ __ __| |
+  / /\/ _` | '_ \ / _` | |/ _ \/ /_\/ | | |/ _` | '__/ _` |
+ / / | (_| | | | | (_| | |  __/ /_\\| |_| | (_| | | | (_| |
+ \/   \__,_|_| |_|\__, |_|\___\____/ \__,_|\__,_|_|  \__,_|
+                  |___/
+2026-01-07T18:06:40.907446Z  INFO TangleGuard CLI - analyzing workspace at: .
+2026-01-07T18:06:40.970551Z  INFO Workspace scan completed in 63.09ms total
+2026-01-07T18:06:40.970570Z  INFO Successfully scanned workspace with 6 packages
+2026-01-07T18:06:40.970574Z  INFO No repository info provided, extracting from Git...
+2026-01-07T18:06:40.993369Z  INFO Extracted: TangleGuard/TangleGuard
+2026-01-07T18:06:40.993671Z  INFO Found origin
+2026-01-07T18:06:41.035836Z  INFO Uploading...
+2026-01-07T18:06:42.725524Z  INFO Successfully uploaded workspace to server!
+```
+
+## Local violation check
+This is currently under construction.
