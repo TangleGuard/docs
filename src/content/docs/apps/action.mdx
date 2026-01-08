@@ -28,13 +28,18 @@ name: Architecture Check
 on: [push, pull_request]
 
 jobs:
-  validate-architecture:
+  upload-architecture:
     runs-on: ubuntu-latest
     steps:
       - uses: TangleGuard/github-action@main
+        with:
+          upload_results: "true"
+          make_public: "true"
+          language: "rust"
+          description: "A static code analysis tool focused on code architecture."
 ```
 
-The job failed if any rule is violated.
+Below you see the logs of the above upload-architecture job:
 
 ```bash
 Scanning workspace and uploading results to TangleGuard Cloud...
@@ -56,3 +61,19 @@ Scanning workspace and uploading results to TangleGuard Cloud...
 
 ## Local violation check
 This is currently under construction.
+
+```yaml
+name: Architecture Check
+on: [push, pull_request]
+
+jobs:
+  upload-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TangleGuard/github-action@main
+        with:
+          upload_results: "false"
+          local: "true"
+          language: "rust"
+          
+```
