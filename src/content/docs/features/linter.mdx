@@ -8,49 +8,32 @@ import { Aside } from '@astrojs/starlight/components';
 import { FileTree } from "@astrojs/starlight/components";
 
 
-<Aside type="caution">The dependency rules are under construction.</Aside>
+<Aside type="caution">The Linter is currently under construction.</Aside>
 
-TangleGuard provides also a structural linter, to keep your project's architecture in place - also when working in large teams.
-
-This CLI tool only verifies your source code regarding the defined dependency rules which you define via the TangleGuard Designer, see [here](/designer/layer).
-
+TangleGuard provides also a structural linter, to keep your project's architecture in place. 
+The architecture decisions can be defined in a configuration file and TangleGuard verifies the source code regarding the defined dependency rules.
 
 ## Configuration File 
 
-The configuration made within the desktop app (the *designer*), are stored in a JSON file named `tangleguard.json` in the root of your software project.
+The architecture configuration is stored in a YAML file named `tangleguard.yml` in the root of your project. This file is supposed to be included in Git, to share it across your team and have a architecture versioning.
 
 <FileTree>
 
 - src/
 - Cargo.toml
-- **tangleguard.json**
+- **tangleguard.yml**
 
 </FileTree>
-
-If you use the Desktop App for the first time, TangleGuard will create that file for you. The file is supposed to be included in Git. Below are some advantages listed to have such file.
-
-<Aside type="tip" title="Architecture Definition File">
-- Architecture commitments directly within the codebase
-- Structured way to track changes of your architecture
-- Let's you review architectural changes
-</Aside>
 
 Below you see an example configuration.
 
 ```json
 {
-  "layers": [
+  "group": [
     {
       "name": "Interaction",
       "description": "",
       "packages": ["rest-api", "graphql-api"]
-    }
-  ],
-  "packages": [
-    {
-      "name": "rest-api",
-      "dependencies": ["utils"],
-      "focus": "technical"
     }
   ],
   "rules": [
@@ -59,21 +42,13 @@ Below you see an example configuration.
       "to": "Services"
     }
   ],
-  "domains": [
-    {
-      "name": "User Management",
-      "dsl": ["OAuth", "Token", "Role"],
-      "domain_type": "Generic"
-    }
-  ]
 }
 ```
 
 You can edit the file manually but it's highly recommended to use the UI instead.
 
-<Aside type="note">
-  If you make changes to the configuration file directly, there is a change that
-  the data is not consistent anymore. E.g. if you rename a layer, make sure you
-  rename the layer also within the rules. To omit this problem, it's recommended
-  to adjust the configuration only via the UI.
-</Aside>
+## Check for violations
+You can validate the dependencies of your codebase in multiple ways:
+
+- Using the CLI: `tangleguard check`
+- Using the Desktop App: Click on the "Check" button in the UI
