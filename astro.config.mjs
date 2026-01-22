@@ -33,6 +33,10 @@ export default defineConfig({
           autogenerate: { directory: "apps" },
         },
         {
+          label: "Scanner",
+          autogenerate: { directory: "scanner" },
+        },
+        {
           label: "Legal",
           autogenerate: { directory: "legal" },
         },

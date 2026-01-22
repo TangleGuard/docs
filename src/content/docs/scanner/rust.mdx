@@ -1,0 +1,45 @@
+---
+title: Rust
+---
+
+import { Code } from "@astrojs/starlight/components";
+
+For Rust, the following `use` statements are taken into account which are defined at the top level of a file and which are explicit.
+
+Below you see an example.
+
+```rust
+// This would be tracked
+use std::collections::HashMap;
+
+fn some_function() {
+    // This would be tracked
+    use std::fs::File;
+    use serde_json::Value;
+}
+```
+
+Since that is not the only way to import other modules, the scanner aso tracks the following:
+
+- Gouped imports: `use std::collections::{HashMap, HashSet};`
+- Renamed imports: `use serde::{Deserialize as De, Serialize as Ser};`
+- Relative imports: `use super::sibling;`, `use self::child::nested;`
+
+Use statements with the asterisk wildcard syntax `use a::b::*;` are not taken into account at the moment.
+
+## Re-Exports
+
+Explicit Re-Exports like `pub use crate::sub_module1::Foo;` are supported.
+The scanner resolves those exports to the actual module. So in the architecture abstraction the dependant module points to the actual module instead of the re-exported module.
+That gives a more accurate representation of the dependency graph.
+
+However, _implicit_ re-exports like `pub use crate::sub_module1::*;` are not yet supported.
+
+## Abstraction Level Mapping
+
+Same like in Javascript, packages are the top level abstraction, followed by the modules.
+
+| Level | Component         |
+| ----- | ----------------- |
+| L1    | Packages (crates) |
+| L2    | Modules           |
