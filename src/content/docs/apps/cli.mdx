@@ -1,11 +1,16 @@
 ---
 title: CLI
 sidebar:
-  order: 2
+  order: 3
 ---
 
-TangleGuard provides a CLI tool for checking the architecture of your project locally.
+import { Aside } from "@astrojs/starlight/components";
 
+TangleGuard comes with a CLI tool, too.
+
+It is being used by the GitHub Action and the IDE Extensions to scan the codebase.
+
+## Architecture Linting
 
 With this tiny tool, you can enforce the dependency rules via a CI Pipeline, like a GitHub Action.
 TangleGuard will validate the source code and error out when rule violations get detected.
@@ -14,3 +19,5 @@ This way, TangleGuard makes sure that the source code is aligned the rules and h
 ```bash
 tangleguard validate
 ```
+
+More about that feature in [here](/features/linter/).

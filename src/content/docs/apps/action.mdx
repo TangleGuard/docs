@@ -5,8 +5,14 @@ sidebar:
 ---
 
 import { LinkCard } from "@astrojs/starlight/components";
+import { Aside } from "@astrojs/starlight/components";
 
 You can easily integrate TangleGuard into your GitHub workflow by using the pre-built GitHub Action.
+
+<Aside type="note">
+  Open source projects only at the moment. For private, cloud hosted
+  architecture analysis, [contact us](mailto:kontakt@jaads.de)
+</Aside>
 
 By providing inputs values to the action, you can basically choose between two modes:
 
@@ -19,6 +25,7 @@ By providing inputs values to the action, you can basically choose between two m
 />
 
 ## Upload to Cloud
+
 It validates your codebase against your TangleGuard configuration file and hence regarding your predefined rules.
 
 Here's a simple example of how to use the GitHub Action in your workflow:
@@ -60,6 +67,7 @@ Scanning workspace and uploading results to TangleGuard Cloud...
 ```
 
 ## Local violation check
+
 This is currently under construction.
 
 ```yaml
@@ -75,5 +83,4 @@ jobs:
           upload_results: "false"
           local: "true"
           language: "rust"
-          
 ```
