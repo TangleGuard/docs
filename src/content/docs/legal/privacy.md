@@ -1,5 +1,7 @@
 ---
 title: Privacy Policy
+sidebar:
+  order: 2
 ---
 
 # Datenschutzerklärung / Privacy Policy

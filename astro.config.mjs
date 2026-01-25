@@ -1,7 +1,8 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import starlightThemeNova from "starlight-theme-nova";
+// import starlightThemeNova from "starlight-theme-nova";
+import starlightThemeGalaxy from 'starlight-theme-galaxy'
 import mermaid from "astro-mermaid";
 import starlightImageZoom from "starlight-image-zoom";
 
@@ -17,6 +18,7 @@ export default defineConfig({
         //       { label: "Download", href: "https://tangleguard.com/download" },
         //     ],
         //   }),
+        starlightThemeGalaxy(),
         starlightImageZoom(),
       ],
       sidebar: [
