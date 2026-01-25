@@ -24,8 +24,9 @@ This privacy policy explains how **TangleGuard** processes personal data across 
 **Deutsch:**
 Verantwortlich für die Datenverarbeitung ist:
 
-Jan Arends
-Nordstraße 69
+Archwise Solutions U.G. i.G.
+Vertreten durch: Jan Arends
+Nordstraße 69-71
 53111 Bonn
 Deutschland
 E-Mail: [kontakt@jaads.de](mailto:kontakt@jaads.de)
@@ -33,8 +34,9 @@ E-Mail: [kontakt@jaads.de](mailto:kontakt@jaads.de)
 **English:**
 The data controller is:
 
-Jan Arends
-Nordstraße 69
+Archwise Solutions U.G. i.G.
+Represented by: Jan Arends
+Nordstraße 69-71
 53111 Bonn
 Germany
 Email: [kontakt@jaads.de](mailto:kontakt@jaads.de)
@@ -180,12 +182,12 @@ You may also contact a data protection authority in case of a complaint.
 
 **Deutsch:**
 Für Datenschutzanfragen wenden Sie sich bitte an:
-[Jan Arends – kontakt@jaads.de](mailto:kontakt@jaads.de)
+[Archwise Solutions U.G. i.G. – kontakt@jaads.de](mailto:kontakt@jaads.de)
 
 **English:**
 For privacy-related inquiries, please contact:
-[Jan Arends – kontakt@jaads.de](mailto:kontakt@jaads.de)
+[Archwise Solutions U.G. i.G. – kontakt@jaads.de](mailto:kontakt@jaads.de)
 
 ---
 
-© 2025 Jan Arends – TangleGuard
+© 2025 Archwise Solutions U.G. i.G. – TangleGuard
