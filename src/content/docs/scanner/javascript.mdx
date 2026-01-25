@@ -2,10 +2,43 @@
 title: Javascript
 ---
 
-Javascript support is in early stage. The resolved imports includes the basic `import` statements.
+For Javascript only ECMAScript modules are supported at the moment. Hence the `import` statements are taken into account.
 
-Re-Exports are being ignored at the moment.
-Dynamic imports are also not taken into account yet.
+```javascript
+// Named imports are tracked
+import { export1 } from "module-name"; // Tracked ✅
+import { export1 as alias1 } from "module-name"; // ?
+
+// Those kind of import are not supported yet
+import message from "./message.js";
+import * as name from "module-name";
+import defaultExport, { export1 /* … */ } from "module-name";
+import "module-name";
+```
+
+**Supported:**
+This should over the majorities of the cases.
+
+- Default imports
+- Named imports (single and multiple)
+- Named imports with aliases
+- `default as alias` pattern
+- Dynamic imports (`import("module-name")`)
+
+**Ignored at the moment:**
+
+- Namespace imports (`* as name`)
+- Mixed default + named imports (`defaultExport, { ... }`)
+- Mixed default + namespace imports (`defaultExport, * as name`)
+- String literal export names (`{ "string name" as alias }`)
+- Side-effect-only imports (`import "module-name"`)
+
+## File Extensions
+
+- `.js` - JavaScript
+- `.jsx` - JavaScript with JSX
+- `.ts` - TypeScript
+- `.tsx` - TypeScript with JSX
 
 ## Abstraction Level Mapping
 

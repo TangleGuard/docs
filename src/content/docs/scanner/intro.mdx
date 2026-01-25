@@ -1,10 +1,10 @@
 ---
-title: Background
+title: Intro
 ---
 
-A major part of TangleGuard are the scanners. They are written in Rust and hence very fast and reliable. They traverse the file system and basically extracts all dependencies within the code for one specific language.
+A major part of TangleGuard are the scanners. They are written in Rust and hence very fast and reliable. They traverse the file system and look for components and their references to other components and creates an architecture abstraction.
 
-This results in an abstraction of the architecture, stored in one object, which Tangleguard uses to create visualization from it the code.
+This abstraction is used to create the visualization.
 
 Currently those two languages
 
@@ -12,3 +12,24 @@ Currently those two languages
 - JavaScript/TypeScript
 
 Go is planned.
+
+```mermaid
+  classDiagram
+      class Desktop
+      class CLI
+      class Scanner {
+          <<factory>>
+      }
+      class Contract {
+          <<interface>>
+      }
+      class JavaScriptScanner
+      class RustScanner
+
+      Desktop --> Scanner
+      CLI --> Scanner
+      Scanner *-- JavaScriptScanner
+      Scanner *-- RustScanner
+      JavaScriptScanner ..|> Contract
+      RustScanner ..|> Contract
+```
