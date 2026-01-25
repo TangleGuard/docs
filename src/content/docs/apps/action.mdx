@@ -8,21 +8,58 @@ import { LinkCard } from "@astrojs/starlight/components";
 import { Aside } from "@astrojs/starlight/components";
 
 You can easily integrate TangleGuard into your GitHub workflow by using the pre-built GitHub Action.
+You can do one of the following:
 
-<Aside type="note">
-  Open source projects only at the moment. For private, cloud hosted
-  architecture analysis, [contact us](mailto:kontakt@jaads.de)
-</Aside>
-
-By providing inputs values to the action, you can basically choose between two modes:
-
-- **Remote**: This uploads the results to TangleGuard web app for further analysis and actions.
-- **Local**: This checks the results on within the github runner and exits when rule violations gets found. This is useful for CI/CD pipelines where you want to fail the build if any rule is violated.
+- **Validate**: This checks your codebase regarding circular dependencies and fails the workflow if any are found. Useful for enforcing architecture rules in pull requests.
+- **Upload**: This uploads the result data to TangleGuard Cloud version, which provides a hosted analytics plattform.
 
 <LinkCard
   title="View on GitHub"
   href="https://github.com/TangleGuard/github-action"
 />
+
+## Validate in CI/CD
+
+Use this to validate your codebase for circular dependencies on every pull request. The workflow will fail if any circular dependencies are found.
+
+```yaml
+name: Architecture Validation
+on: [pull_request]
+
+jobs:
+  validate-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TangleGuard/github-action@main
+        with:
+          upload_results: "true"
+          make_public: "true"
+          language: "rust"
+          description: "My project"
+          fail_on_findings: "true"
+```
+
+Below you see an example output when circular dependencies are detected:
+
+```bash
+🔄 Checking for circular dependencies...
+📦 Cross-package circular dependencies (2):
+  🔄 content → markdown → templates → content
+  🔄 markdown → templates → markdown
+
+🧩 Module-level circular dependencies (6):
+  📁 content (6 cycles):
+    🔄 content::library → content::page → content::library
+    🔄 content::library → content::ser → content::library
+    🔄 content::library → content::ser → content::page → content::library
+    🔄 content::library → content::taxonomies → content::library
+    🔄 content::page → content::ser → content::page
+    🔄 content::section → content::ser → content::section
+
+❌ Found 8 circular dependencies (609.63µs)
+```
+
+Set `fail_on_findings: "false"` if you want to see the validation results without failing the workflow.
 
 ## Upload to Cloud
 
@@ -64,23 +101,4 @@ Scanning workspace and uploading results to TangleGuard Cloud...
 2026-01-07T18:06:40.993671Z  INFO Found origin
 2026-01-07T18:06:41.035836Z  INFO Uploading...
 2026-01-07T18:06:42.725524Z  INFO Successfully uploaded workspace to server!
-```
-
-## Local violation check
-
-This is currently under construction.
-
-```yaml
-name: Architecture Check
-on: [push, pull_request]
-
-jobs:
-  upload-architecture:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: TangleGuard/github-action@main
-        with:
-          upload_results: "false"
-          local: "true"
-          language: "rust"
 ```

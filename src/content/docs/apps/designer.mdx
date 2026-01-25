@@ -22,52 +22,15 @@ More about the linting in general [here](/features/linter).
 
 ## Define Dependency Rules
 
-<Aside type="caution">The dependency rule system is under construction.</Aside>
+<Aside type="caution" title="Under construction">
+  The dependency rules system is getting redefined.
+</Aside>
 
 You can define if components are allowed to depend on each other not.
 
 ![Rules for layers](../../../assets/layerrules.jpeg)
 
 You can view all the existing rules on the rules page.
-
-## Defining Layers
-
-Currently, depending on where you want to apply a layered architecture, it is done in different ways.
-Soon this will be unified.
-
-### Layers above Packages
-
-Layers within your workspace are _logic groups of packages_.
-
-The following steps need to be made to create a layered architecture:
-
-<Steps>
-
-1. Create a layer by specifying its name and optionally a description.
-
-2. Associate packages to the layer. There is a list of packages you have to associate to layer. Click on on the package, and select the layer in which the packages belongs out of the dropdown list.
-
-3. Crete the allowed relationship between the new layer and other layers by using _dependency rules_, see below in a later section.
-
-</Steps>
-
-### Layers above Modules
-
-You can also specify layers for a specific package (a library crate or a binary crate.)
-In that case a layer _groups modules_.
-
-It is currently handled differently than layers for packages.
-When it comes to layers for a specific project, currently those are defined by specifying a directory, which is usually a module. All the nested modules are considered part of the same layer then.
-
-This might change in the future and enhanced so that a layers can be specified by a list of modules, similar to how a layer is specified in the previous section.
-
-<Steps>
-
-1. Create a layer by specifying its name, it's **path**, and optionally a description.
-
-2. Crete the allowed relationship between the new layer and other layers by using _dependency rules_, see below in a later section.
-
-</Steps>
 
 <YouTube id="8p3Ksvdu618" />
 

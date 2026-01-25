@@ -1,19 +1,29 @@
 ---
-title: Architectural Linter
+title: Validation
 sidebar:
   order: 2
 ---
+
 import { LinkCard } from "@astrojs/starlight/components";
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 import { FileTree } from "@astrojs/starlight/components";
 
+TangleGuard is also a **structural linter**, which keeps your project's architecture in place.
+It verifies the source code regarding predefined rules.
+Later custom rules will be enabled again too.
 
-<Aside type="caution">The Linter is currently under construction.</Aside>
+## Check for violations
 
-TangleGuard provides also a structural linter, to keep your project's architecture in place. 
-The architecture decisions can be defined in a configuration file and TangleGuard verifies the source code regarding the defined dependency rules.
+You can validate the dependencies of your codebase in multiple ways:
 
-## Configuration File 
+- Via GitHub Action, see [GitHub Actions](/apps/action)
+- Using the Desktop App: Click on the "Check" button in the UI (todo)
+- Using the CLI: `tangleguard validate`
+
+## Custom Dependency Rules
+
+<Aside type="caution">Custom rules are under construction.</Aside>
+The architecture decisions can be defined in a configuration file.
 
 The architecture configuration is stored in a YAML file named `tangleguard.yml` in the root of your project. This file is supposed to be included in Git, to share it across your team and have a architecture versioning.
 
@@ -41,14 +51,8 @@ Below you see an example configuration.
       "from": "Interaction",
       "to": "Services"
     }
-  ],
+  ]
 }
 ```
 
 You can edit the file manually but it's highly recommended to use the UI instead.
-
-## Check for violations
-You can validate the dependencies of your codebase in multiple ways:
-
-- Using the CLI: `tangleguard check`
-- Using the Desktop App: Click on the "Check" button in the UI
