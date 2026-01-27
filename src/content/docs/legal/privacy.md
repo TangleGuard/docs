@@ -4,7 +4,7 @@ sidebar:
   order: 2
 ---
 
-# Datenschutzerklärung / Privacy Policy
+## Datenschutzerklärung / Privacy Policy
 
 Diese Datenschutzerklärung informiert Sie darüber, wie wir personenbezogene Daten auf allen Plattformen und Diensten von **TangleGuard** verarbeiten.
 

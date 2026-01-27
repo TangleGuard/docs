@@ -12,13 +12,22 @@ TangleGuard is also a **structural linter**, which keeps your project's architec
 It verifies the source code regarding predefined rules.
 Later custom rules will be enabled again too.
 
+## Predefined Dependency Rules
+
+The design of a codebase is according to the requirements of the application, therefore each design is tailored to its purpose.
+However there are design concepts, which are bad practice and should be avoided within every bodycode.
+TangleGuard checks for those anti patterns.
+Currently the following predefined rules are available:
+
+- **Circular Dependencies**: Checks for circular dependencies between components
+
 ## Check for violations
 
 You can validate the dependencies of your codebase in multiple ways:
 
-- Via GitHub Action, see [GitHub Actions](/apps/action)
-- Using the Desktop App: Click on the "Check" button in the UI (todo)
-- Using the CLI: `tangleguard validate`
+- Using the CLI: `tangleguard validate`. Gives you a small report with the terminal
+- Via GitHub Action, see [GitHub Actions](/apps/action), which can be used to reject code which violate the rules from getting merged. That's one of TangleGuard main strength.
+- Using the UI in the VS Code extension or the desktop app: Highlights the edges which violate rules in the diagram
 
 ## Custom Dependency Rules
 
