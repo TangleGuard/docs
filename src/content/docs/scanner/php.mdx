@@ -1,0 +1,16 @@
+---
+title: PHP
+---
+
+PHP has been tried out recently but is not much tested yet.
+Feel free to try it out and report any issues you find.
+
+For PHP, the top level packages are defined within the `composer` file.
+The scanner goes into those declared locations, and checks the directories content for `use` statements.
+
+```php
+use Laravel\Cashier\Exceptions\InvalidCoupon;
+```
+
+Only those `use` statements are taken into account regarding the dependencies.
+Therefore you have to have the `autolaoder` setup.

@@ -1,5 +1,7 @@
 ---
 title: Intro
+sidebar:
+  order: 1
 ---
 
 A major part of TangleGuard are the scanners. They are written in Rust and hence very fast and reliable. They traverse the file system and look for components and their references to other components and creates an architecture abstraction.
@@ -23,13 +25,13 @@ Go is planned.
       class Contract {
           <<interface>>
       }
-      class JavaScriptScanner
-      class RustScanner
+      class JavaScript
+      class Rust
 
       Desktop --> Scanner
       CLI --> Scanner
-      Scanner *-- JavaScriptScanner
-      Scanner *-- RustScanner
-      JavaScriptScanner ..|> Contract
-      RustScanner ..|> Contract
+      Scanner *-- JavaScript
+      Scanner *-- Rust
+      JavaScript ..|> Contract
+      Rust ..|> Contract
 ```
