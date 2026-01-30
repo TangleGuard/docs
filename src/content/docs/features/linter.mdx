@@ -12,14 +12,48 @@ TangleGuard is also a **structural linter**, which keeps your project's architec
 It verifies the source code regarding predefined rules.
 Later custom rules will be enabled again too.
 
-## Predefined Dependency Rules
+## Dependency Rules
 
-The design of a codebase is according to the requirements of the application, therefore each design is tailored to its purpose.
-However there are design concepts, which are bad practice and should be avoided within every bodycode.
-TangleGuard checks for those anti patterns.
-Currently the following predefined rules are available:
+Define architectural boundaries by organizing your codebase into layers and specifying allowed dependencies between them.
 
-- **Circular Dependencies**: Checks for circular dependencies between components
+Create a `tangleguard-rules.yaml` file in your project root:
+
+<FileTree>
+
+- src/
+- Cargo.toml
+- **tangleguard-rules.yaml**
+
+</FileTree>
+
+Example configuration:
+
+```yaml
+layers:
+  - name: apps
+    description: "Application entry points"
+    paths:
+      - "apps/**"
+
+  - name: core
+    description: "Business logic"
+    paths:
+      - "core/**"
+
+rules:
+  # Apps can depend on core
+  - from:
+      layer: apps
+    to:
+      layer: core
+    description: "Applications can use core business logic"
+```
+
+**How it works:**
+
+- Define **layers** using filesystem paths (e.g., `apps/**` matches everything under `apps/`)
+- Define **rules** to allow dependencies from one layer to another
+- Any dependency not explicitly allowed is flagged as a violation
 
 ## Check for violations
 
@@ -29,39 +63,11 @@ You can validate the dependencies of your codebase in multiple ways:
 - Via GitHub Action, see [GitHub Actions](/apps/action), which can be used to reject code which violate the rules from getting merged. That's one of TangleGuard main strength.
 - Using the UI in the VS Code extension or the desktop app: Highlights the edges which violate rules in the diagram
 
-## Custom Dependency Rules
+## Predefined Dependency Rules
 
-<Aside type="caution">Custom rules are under construction.</Aside>
-The architecture decisions can be defined in a configuration file.
+The design of a codebase is according to the requirements of the application, therefore each design is tailored to its purpose.
+However there are design concepts, which are bad practice and should be avoided within every bodycode.
+TangleGuard checks for those anti patterns.
+Currently the following predefined rules are available:
 
-The architecture configuration is stored in a YAML file named `tangleguard.yml` in the root of your project. This file is supposed to be included in Git, to share it across your team and have a architecture versioning.
-
-<FileTree>
-
-- src/
-- Cargo.toml
-- **tangleguard.yml**
-
-</FileTree>
-
-Below you see an example configuration.
-
-```json
-{
-  "group": [
-    {
-      "name": "Interaction",
-      "description": "",
-      "packages": ["rest-api", "graphql-api"]
-    }
-  ],
-  "rules": [
-    {
-      "from": "Interaction",
-      "to": "Services"
-    }
-  ]
-}
-```
-
-You can edit the file manually but it's highly recommended to use the UI instead.
+- **Circular Dependencies**: Checks for circular dependencies between components
