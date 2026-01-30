@@ -16,16 +16,19 @@ Those diagrams are interactive. You can move nodes and layers around as you like
 
 See [cohesion and coupling](/welcome/definitions/#architecture-evaluation) to evaluate the architecture.
 
-## Package Overview
+## Top Level Structure
 
-When you first open the diagram, the depth level is set to 0. This means that only the highest level components get shown, which are the packages. You can see how the packages are connected to each other. The number in brackets is the line count of the package.
+When you open the visualization you'll first see the top level structure of your workspace.
+Usually those are the packages in your workspace, but programming languages differ in how they organize their code.
+You can see how the top level components are connected to each other.
+The number in brackets is the line count of the package.
 
 Below is an example of [ripgrep](https://github.com/BurntSushi/ripgrep).
 ![PackageOverview](../../../assets/unifiedview-l0.png)
 
 On the top right, you see a button which opens a model, where you can also select which packages you want to get displayed.
 
-## Module Overview
+## Nested Structure
 
 If you select a depth level more then 0 by using the slider, all the top level modules will be shown in addition to the packages.
 You can go 4 levels deep. This might lead to a very large graph.
@@ -41,6 +44,8 @@ In addition, you can configure the edges you want to get displayed, by using the
 ## Interactivity
 
 You can click on edges to get the dependencies information displayed in a panel.
+
+You can move nodes around by dragging them with your mouse.
 
 ## Configuration
 

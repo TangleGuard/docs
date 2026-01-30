@@ -1,0 +1,58 @@
+---
+title: Workflows
+sidebar:
+  order: 6
+---
+
+import { LinkCard } from "@astrojs/starlight/components";
+import { Steps } from "@astrojs/starlight/components";
+import { Aside } from "@astrojs/starlight/components";
+
+TangleGuard can be uses in various ways, depending on your needs.
+
+Below are two common ways to use TangleGuard for your software project.
+
+## Enforce Design Decisions Automatically
+
+You can leverage TangleGuard to make sure, that no code changes go into your codebase which violate certain dependency rules.
+This check can be integrated into your CI/CD pipeline or as a pre-commit hook.
+Below you see how it would work.
+More information about dependency rule enforcement [here](/features/linter)
+
+<Steps>
+
+1. **Define Dependency Rules**
+   In the best case, you codebase is build as a layered, onion-based or a hexagonal architecture already. Then you can define those layers easily with the Designer Desktop App.
+   That way, TangleGuard informs you about architecture drift and dependencies which violate your layered principles.
+   Those layers definition are stored in the [configuration file](/features/linter#dependency-rules).
+
+2. **Validate Codebase**
+   With just one click, you can scan your whole codebase again dependency rule violations.
+   TangleGuard will provide you with a list of dependencies which violate your dependency rules.
+   The validation can be triggered via the UI.
+   Eliminate those violations by refactoring your codebase.
+
+3. **Setup Automation**
+   If you are free of violations and want to stay free of violations, you should enforce your target architecture within your CI/CD pipeline via the [TangleGuard GitHub Action](https://github.com/TangleGuard/github-action).
+   That way new violations get rejected before they can enter your codebase and slow down the development process in the future.
+
+</Steps>
+
+## Find Architectural Flaws Manually
+
+<Steps>
+
+1. **Explore Codebase**
+   Browse your codebase as a graph.
+   You can see the packages and modules of your codebase and how they are connected to each other.
+   Take your time to understand the structure and relationships between different components.
+   You'll likely be surprised about how components depend on each other.
+
+2. **Identify issues and strange dependencies**
+   As you likely know, components are supposed to be loosely coupled. Often autocompletion, AI coding and missing defined boundaries lead to dependencies which will make the maintenance of your code harder. Hover over nodes in the visualization and find dependencies you did not expect, and refactor them soon.
+
+</Steps>
+
+<Aside type="tip">
+  Use the Desktp App to see results and configure TangleGuard.
+</Aside>
